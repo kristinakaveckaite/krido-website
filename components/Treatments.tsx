@@ -4,42 +4,38 @@ import { treatments, treatmentsIntro } from "@/lib/content";
 
 export default function Treatments() {
   return (
-    <section id="services" className="section py-20 md:py-28">
+    <section id="services" className="section py-16 md:py-24">
       <div className="container-site">
-        {/* Heading matches original: centered, all-caps, with underline */}
-        <div className="mb-12 text-center">
+        {/* Heading: centered, all-caps, underline — matching original */}
+        <div className="mb-10 text-center">
           <h2 className="inline-block border-b-2 border-ink pb-2 font-sans text-2xl font-bold uppercase tracking-widest text-ink md:text-3xl">
             {treatmentsIntro.title}
           </h2>
-          <p className="mt-5 text-muted">{treatmentsIntro.body}</p>
+          <p className="mt-5 text-sm text-muted md:text-base">{treatmentsIntro.body}</p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Cards: image tiles with title overlaid at the bottom — matching original */}
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {treatments.map((t) => (
             <Link
               key={t.title}
               href={t.href}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md"
+              className="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src={t.image}
-                  alt={t.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-sans text-xl font-bold text-forest">{t.title}</h3>
-                <ul className="mt-3 flex-1 space-y-1 text-sm text-muted">
-                  {t.lines.map((line) => (
-                    <li key={line}>{line}</li>
-                  ))}
-                </ul>
-                <span className="mt-5 text-sm font-semibold text-forest group-hover:underline">
-                  Learn more →
-                </span>
+              <Image
+                src={t.image}
+                alt={t.title}
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              {/* Dark gradient at bottom for text legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              {/* Title overlaid at bottom-left */}
+              <div className="absolute bottom-0 left-0 p-4 md:p-5">
+                <h3 className="font-sans text-sm font-bold uppercase tracking-wide text-white md:text-base lg:text-lg">
+                  {t.title}
+                </h3>
               </div>
             </Link>
           ))}
