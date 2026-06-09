@@ -31,8 +31,7 @@ export const nav = [
 ];
 
 export const hero = {
-  videoUrl:
-    "https://framerusercontent.com/assets/oLMPWHGLZMoBeOZ0W4OhEicWkjo.mp4",
+videoUrl: "/hero.mov",
   eyebrow: "St. Pete's #1 cryo studio",
   headline: ["Lose Inches.", "Lift Your Face.", "No Surgery.", "No Downtime."],
   sub: "Most clients see results after their very first session.",
