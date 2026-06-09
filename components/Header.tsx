@@ -105,7 +105,7 @@ export default function Header() {
 
         {/* Right nav */}
         <nav className="flex flex-1 items-center justify-end gap-6 text-sm font-medium text-ink">
-          <Link href="/before-and-afters" className="hover:opacity-70">
+          <Link href="/before-and-afters" className="rounded-full bg-gray-200 px-5 py-2 text-sm font-medium text-ink transition hover:bg-gray-300">
             Before &amp; Afters
           </Link>
           <BookNow className="rounded-full bg-forest px-5 py-2 text-sm font-medium text-cream transition hover:bg-forest-dark" />

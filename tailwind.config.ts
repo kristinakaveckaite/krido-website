@@ -15,10 +15,8 @@ const config: Config = {
         muted: "#6B6B66",
       },
       fontFamily: {
-        // Swap these for the exact Framer fonts once identified.
-        // CSS variables are defined in globals.css / layout.tsx.
-        display: ["var(--font-display)", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "Manrope", "system-ui", "sans-serif"],
+        display: ["var(--font-sans)", "Manrope", "system-ui", "sans-serif"],
       },
       maxWidth: {
         site: "1200px",

@@ -1,36 +1,36 @@
 import { hero } from "@/lib/content";
-import BookNow from "@/components/BookNow";
 
 export default function Hero() {
   return (
-    <section className="relative h-[60vh] min-h-[420px] overflow-hidden md:h-[70vh]">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src={hero.videoUrl} type="video/mp4" />
-      </video>
-      {/* Gradient: subtle on left, stronger on right to keep text readable */}
-      <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/20 to-black/10" />
+    /* Outer section has horizontal padding so the video sits inset with rounded corners */
+    <section className="bg-white px-4 pb-6 pt-4 md:px-6">
+      <div className="relative h-[58vh] min-h-[400px] overflow-hidden rounded-2xl md:h-[68vh] md:rounded-3xl">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={hero.videoUrl} type="video/mp4" />
+        </video>
+        {/* Gradient stronger on right so white text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-l from-black/65 via-black/25 to-transparent" />
 
-      {/* Text block — right-aligned, matching original */}
-      <div className="absolute inset-0 flex items-center justify-end">
-        <div className="section container-site flex justify-end">
-          <div className="max-w-lg text-right text-cream">
-            <h1 className="font-sans text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-6xl">
+        {/* Text — right side, ALL CAPS, matching original */}
+        <div className="absolute inset-0 flex items-center justify-end px-8 md:px-14">
+          <div className="max-w-lg text-right text-white">
+            <h1 className="font-sans text-4xl font-extrabold uppercase leading-none tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               {hero.headline.map((line) => (
                 <span key={line} className="block">
                   {line.toUpperCase()}
                 </span>
               ))}
             </h1>
-            <p className="mt-4 text-sm uppercase tracking-[0.15em] text-cream/90">
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
               {hero.eyebrow}
             </p>
-            <p className="mt-1 text-sm uppercase tracking-[0.1em] text-cream/80">
+            <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-white/75">
               {hero.sub}
             </p>
           </div>
