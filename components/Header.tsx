@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { site } from "@/lib/content";
 import BookNow from "@/components/BookNow";
@@ -34,7 +35,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       {/* Top utility bar */}
-      <div className="border-b border-gray-100 bg-white text-xs text-ink">
+      <div className="border-b border-gray-100 text-xs text-ink">
         <div className="container-site section flex items-center justify-between py-2">
           <a
             href={site.instagram}
@@ -50,8 +51,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main nav — split layout with centered logo */}
-      <div className="container-site section hidden items-center py-4 md:flex">
+      {/* Desktop nav — split layout with centered logo */}
+      <div className="container-site section hidden items-center py-3 md:flex">
         {/* Left nav */}
         <nav className="flex flex-1 items-center gap-7 text-sm font-medium text-ink">
           {leftNav.map((item) =>
@@ -65,7 +66,12 @@ export default function Header() {
                 <button className="flex items-center gap-1 hover:opacity-70">
                   {item.label}
                   <svg className="h-3 w-3" viewBox="0 0 12 8" fill="none">
-                    <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <path
+                      d="M1 1l5 5 5-5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </button>
                 {dropdown === item.label && (
@@ -83,29 +89,35 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <Link key={item.label} href={item.href} className="hover:opacity-70">
+              <Link
+                key={item.label}
+                href={item.href}
+                className="hover:opacity-70"
+              >
                 {item.label}
               </Link>
             )
           )}
         </nav>
 
-        {/* Centered logo */}
-        <Link
-          href="/"
-          className="mx-8 flex flex-col items-center leading-none"
-        >
-          <span className="font-sans text-2xl font-bold tracking-[0.15em] text-ink">
-            KRIDO
-          </span>
-          <span className="font-sans text-[10px] font-medium tracking-[0.3em] text-ink">
-            WELLNESS
-          </span>
+        {/* Centered logo — SVG file */}
+        <Link href="/" className="mx-8 shrink-0">
+          <Image
+            src="/logo.svg"
+            alt="KRIDO Wellness"
+            width={130}
+            height={62}
+            priority
+            className="h-12 w-auto"
+          />
         </Link>
 
         {/* Right nav */}
-        <nav className="flex flex-1 items-center justify-end gap-6 text-sm font-medium text-ink">
-          <Link href="/before-and-afters" className="rounded-full bg-gray-200 px-5 py-2 text-sm font-medium text-ink transition hover:bg-gray-300">
+        <nav className="flex flex-1 items-center justify-end gap-4 text-sm font-medium">
+          <Link
+            href="/before-and-afters"
+            className="rounded-full bg-gray-200 px-5 py-2 text-ink transition hover:bg-gray-300"
+          >
             Before &amp; Afters
           </Link>
           <BookNow className="rounded-full bg-forest px-5 py-2 text-sm font-medium text-cream transition hover:bg-forest-dark" />
@@ -113,22 +125,29 @@ export default function Header() {
       </div>
 
       {/* Mobile nav */}
-      <div className="flex items-center justify-between px-5 py-4 md:hidden">
-        <Link href="/" className="flex flex-col items-center leading-none">
-          <span className="font-sans text-xl font-bold tracking-[0.15em] text-ink">KRIDO</span>
-          <span className="font-sans text-[9px] font-medium tracking-[0.3em] text-ink">WELLNESS</span>
+      <div className="flex items-center justify-between px-5 py-3 md:hidden">
+        <Link href="/">
+          <Image
+            src="/logo.svg"
+            alt="KRIDO Wellness"
+            width={100}
+            height={48}
+            priority
+            className="h-9 w-auto"
+          />
         </Link>
         <button
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
-          className="flex flex-col gap-1.5"
+          className="flex flex-col gap-1.5 p-1"
         >
           <span className="block h-0.5 w-6 bg-ink" />
           <span className="block h-0.5 w-6 bg-ink" />
           <span className="block h-0.5 w-6 bg-ink" />
         </button>
       </div>
+
       {mobileOpen && (
         <nav className="border-t border-gray-100 bg-white px-5 pb-4 md:hidden">
           <div className="flex flex-col gap-3 pt-3 text-sm font-medium text-ink">
@@ -139,7 +158,7 @@ export default function Header() {
             <Link href="/packages" onClick={() => setMobileOpen(false)}>Packages</Link>
             <Link href="/before-and-afters" onClick={() => setMobileOpen(false)}>Before &amp; Afters</Link>
             <Link href="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
-            <BookNow className="mt-1 inline-block rounded-full bg-forest px-5 py-2 text-center text-sm font-medium text-cream" />
+            <BookNow className="mt-2 inline-block rounded-full bg-forest px-5 py-2 text-center text-sm font-medium text-cream" />
           </div>
         </nav>
       )}
