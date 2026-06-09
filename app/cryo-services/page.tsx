@@ -1,20 +1,15 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import ServicePageView from "@/components/ServicePageView";
+import { services } from "@/lib/services";
 
-export default function Page() {
-  return (
-    <>
-      <Header />
-      <main className="section py-28">
-        <div className="container-site">
-          <h1 className="font-display text-4xl text-forest">Cryo Services</h1>
-          <p className="mt-4 max-w-2xl text-muted">
-            This page is scaffolded and ready for content. Build it out the same
-            way as the home page — reusable sections reading from lib/content.ts.
-          </p>
-        </div>
-      </main>
-      <Footer />
-    </>
-  );
+const data = services["cryo-services"];
+
+export const metadata: Metadata = {
+  title: "Cryo Services — Sculpt & Tighten | KRIDO Wellness",
+  description:
+    "Non-invasive cryo body sculpting and skin tightening in St. Petersburg, FL. 30-minute sessions, no downtime. Book your treatment at KRIDO Wellness.",
+};
+
+export default function CryoServicesPage() {
+  return <ServicePageView data={data} />;
 }
