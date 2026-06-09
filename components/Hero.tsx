@@ -3,39 +3,39 @@ import { hero } from "@/lib/content";
 
 export default function Hero() {
   return (
-    <section className="section bg-white py-6 md:py-10">
+    <section className="section bg-white py-4 md:py-5">
       <div className="container-site">
-        <div className="flex flex-col items-center gap-6 md:flex-row md:items-stretch md:gap-10 lg:gap-16">
+        <div className="flex flex-col items-center gap-5 md:flex-row md:items-stretch md:gap-8"
+             style={{ maxHeight: "calc(80vh - 80px)" }}>
 
-          {/* LEFT — portrait video in its natural 9:16 ratio */}
-          <div className="w-full max-w-[340px] self-center md:max-w-none md:w-[38%] lg:w-[36%]">
-            <div className="relative overflow-hidden rounded-2xl md:rounded-3xl" style={{ aspectRatio: "9/16" }}>
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src={hero.videoUrl} type="video/mp4" />
-                <source src={hero.videoUrl} type="video/quicktime" />
-              </video>
-            </div>
+          {/* LEFT — portrait video, fills its column height */}
+          <div className="w-full shrink-0 overflow-hidden rounded-2xl md:w-[32%] md:rounded-3xl"
+               style={{ aspectRatio: "9/16", maxHeight: "calc(80vh - 80px)" }}>
+            <video
+              className="h-full w-full object-cover object-top"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={hero.videoUrl} type="video/mp4" />
+              <source src={hero.videoUrl} type="video/quicktime" />
+            </video>
           </div>
 
-          {/* RIGHT — text content */}
-          <div className="flex w-full flex-col justify-center md:w-[62%] lg:w-[64%]">
+          {/* RIGHT — text */}
+          <div className="flex w-full flex-col justify-center md:flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               {hero.eyebrow}
             </p>
 
             <h1
-              className="mt-3 uppercase leading-[0.88] tracking-tight text-ink"
+              className="mt-2 uppercase leading-[0.88] tracking-tight text-ink"
               style={{
                 fontFamily: "var(--font-sans)",
                 fontVariationSettings: "'wght' 900",
                 fontWeight: 900,
-                fontSize: "clamp(2.6rem, 6vw, 5.5rem)",
+                fontSize: "clamp(1.6rem, 3.2vw, 3rem)",
               }}
             >
               {hero.headline.map((line) => (
@@ -45,21 +45,21 @@ export default function Hero() {
               ))}
             </h1>
 
-            <p className="mt-6 max-w-md text-sm text-muted md:text-base">
+            <p className="mt-4 max-w-sm text-sm text-muted">
               {hero.sub}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <BookNow className="rounded-full bg-forest px-8 py-3 font-semibold text-cream transition hover:bg-forest-dark" />
+            <div className="mt-5 flex flex-wrap gap-3">
+              <BookNow className="rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-cream transition hover:bg-forest-dark" />
               <a
                 href="/what-is-cryo"
-                className="rounded-full border border-ink px-8 py-3 font-semibold text-ink transition hover:bg-ink hover:text-cream"
+                className="rounded-full border border-ink px-6 py-2.5 text-sm font-semibold text-ink transition hover:bg-ink hover:text-cream"
               >
                 What is Cryo?
               </a>
             </div>
 
-            <p className="mt-6 text-xs uppercase tracking-[0.15em] text-muted">
+            <p className="mt-4 text-xs uppercase tracking-[0.15em] text-muted">
               5 ★ Reviews · Licensed staff · St. Petersburg
             </p>
           </div>
