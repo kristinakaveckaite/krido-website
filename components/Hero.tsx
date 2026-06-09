@@ -20,7 +20,7 @@ export default function Hero() {
         {/* Text — right side, ALL CAPS, matching original */}
         <div className="absolute inset-0 flex items-center justify-end px-8 md:px-14">
           <div className="max-w-lg text-right text-white">
-            <h1 className="font-sans text-4xl font-extrabold uppercase leading-none tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="font-sans text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               {hero.headline.map((line) => (
                 <span key={line} className="block">
                   {line.toUpperCase()}

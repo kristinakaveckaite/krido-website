@@ -6,11 +6,12 @@ export default function Treatments() {
   return (
     <section id="services" className="section py-20 md:py-28">
       <div className="container-site">
-        <div className="mb-12 max-w-2xl">
-          <h2 className="font-display text-3xl text-forest md:text-4xl">
+        {/* Heading matches original: centered, all-caps, with underline */}
+        <div className="mb-12 text-center">
+          <h2 className="inline-block border-b-2 border-ink pb-2 font-sans text-2xl font-bold uppercase tracking-widest text-ink md:text-3xl">
             {treatmentsIntro.title}
           </h2>
-          <p className="mt-4 text-muted">{treatmentsIntro.body}</p>
+          <p className="mt-5 text-muted">{treatmentsIntro.body}</p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -30,13 +31,13 @@ export default function Treatments() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-xl text-forest">{t.title}</h3>
+                <h3 className="font-sans text-xl font-bold text-forest">{t.title}</h3>
                 <ul className="mt-3 flex-1 space-y-1 text-sm text-muted">
                   {t.lines.map((line) => (
                     <li key={line}>{line}</li>
                   ))}
                 </ul>
-                <span className="mt-5 text-sm font-medium text-forest group-hover:underline">
+                <span className="mt-5 text-sm font-semibold text-forest group-hover:underline">
                   Learn more →
                 </span>
               </div>
