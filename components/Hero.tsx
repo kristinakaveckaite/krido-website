@@ -1,39 +1,69 @@
+import BookNow from "@/components/BookNow";
 import { hero } from "@/lib/content";
 
 export default function Hero() {
   return (
-    /* Outer section has horizontal padding so the video sits inset with rounded corners */
-    <section className="bg-white px-4 pb-6 pt-4 md:px-6">
-      <div className="relative h-[58vh] min-h-[400px] overflow-hidden rounded-2xl md:h-[68vh] md:rounded-3xl">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src={hero.videoUrl} type="video/mp4" />
-        </video>
-        {/* Gradient stronger on right so white text stays readable */}
-        <div className="absolute inset-0 bg-gradient-to-l from-black/65 via-black/25 to-transparent" />
+    <section className="section bg-white py-6 md:py-10">
+      <div className="container-site">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:items-stretch md:gap-10 lg:gap-16">
 
-        {/* Text — right side, ALL CAPS, matching original */}
-        <div className="absolute inset-0 flex items-center justify-end px-8 md:px-14">
-          <div className="max-w-lg text-right text-white">
-            <h1 className="font-sans text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          {/* LEFT — portrait video in its natural 9:16 ratio */}
+          <div className="w-full max-w-[340px] self-center md:max-w-none md:w-[38%] lg:w-[36%]">
+            <div className="relative overflow-hidden rounded-2xl md:rounded-3xl" style={{ aspectRatio: "9/16" }}>
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={hero.videoUrl} type="video/mp4" />
+                <source src={hero.videoUrl} type="video/quicktime" />
+              </video>
+            </div>
+          </div>
+
+          {/* RIGHT — text content */}
+          <div className="flex w-full flex-col justify-center md:w-[62%] lg:w-[64%]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+              {hero.eyebrow}
+            </p>
+
+            <h1
+              className="mt-3 uppercase leading-[0.88] tracking-tight text-ink"
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontVariationSettings: "'wght' 900",
+                fontWeight: 900,
+                fontSize: "clamp(2.6rem, 6vw, 5.5rem)",
+              }}
+            >
               {hero.headline.map((line) => (
                 <span key={line} className="block">
                   {line.toUpperCase()}
                 </span>
               ))}
             </h1>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
-              {hero.eyebrow}
-            </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-white/75">
+
+            <p className="mt-6 max-w-md text-sm text-muted md:text-base">
               {hero.sub}
             </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <BookNow className="rounded-full bg-forest px-8 py-3 font-semibold text-cream transition hover:bg-forest-dark" />
+              <a
+                href="/what-is-cryo"
+                className="rounded-full border border-ink px-8 py-3 font-semibold text-ink transition hover:bg-ink hover:text-cream"
+              >
+                What is Cryo?
+              </a>
+            </div>
+
+            <p className="mt-6 text-xs uppercase tracking-[0.15em] text-muted">
+              5 ★ Reviews · Licensed staff · St. Petersburg
+            </p>
           </div>
+
         </div>
       </div>
     </section>

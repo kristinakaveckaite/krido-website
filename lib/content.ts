@@ -34,7 +34,7 @@ export const hero = {
   videoUrl:
     "https://framerusercontent.com/assets/oLMPWHGLZMoBeOZ0W4OhEicWkjo.mp4",
   eyebrow: "St. Pete's #1 cryo studio",
-  headline: ["Lose Inches.", "Lift Your Face.", "No Surgery. No Downtime."],
+  headline: ["Lose Inches.", "Lift Your Face.", "No Surgery.", "No Downtime."],
   sub: "Most clients see results after their very first session.",
   note: "Optimize your health and aesthetics in St. Petersburg, Florida",
 };
