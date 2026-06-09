@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
 }
 
 html {
@@ -16,22 +15,17 @@ body {
   color: theme("colors.ink");
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* Reusable section wrapper */
 .section {
   width: 100%;
   padding-left: 1.25rem;
