@@ -114,13 +114,32 @@ export const features = [
 ];
 
 export const bestSellers = [
-  { name: "Vitamin Veil Cleansing Oil", href: "/products/vitamin-veil-cleansing-oil" },
-  { name: "AquaPorin Hydrating Cream", href: "/products/aquaporin-hydrating-cream" },
-  { name: "Serum 71", href: "/products/serum-71" },
-  { name: "Emergency Eye Lift", href: "/products/emergency-eye-lift" },
   {
-    name: "Lip Renewing Hydrator - Peppermint Mocha",
-    href: "/products/lip-renewing-hydrator-peppermin-mocha",
+    name: "Vitamin Veil Cleansing Oil",
+    href: "https://www.vagaro.com/kridowellness",
+    image: "https://circadia.com/cdn/shop/files/3-VitaminVeilCleaningOil.png?v=1771599786&width=800",
+  },
+  {
+    name: "AquaPorin Hydrating Cream",
+    href: "https://www.vagaro.com/kridowellness",
+    image: "https://circadia.com/cdn/shop/files/2-AquaporinHydratingCream.png?v=1771604241&width=800",
+  },
+  {
+    name: "Serum 71",
+    href: "https://www.vagaro.com/kridowellness",
+    image: "https://circadia.com/cdn/shop/files/3_Serum71RenewalSerum.png?v=1771597055&width=800",
+  },
+  {
+    name: "Emergency Eye Lift",
+    href: "https://www.vagaro.com/kridowellness",
+    // TODO: replace with Circadia CDN image when available
+    image: "https://framerusercontent.com/images/1FwAXiLkIOQPLghfwyxPmMDUU.jpg?width=800",
+  },
+  {
+    name: "Lip Renewing Hydrator — Peppermint Mocha",
+    href: "https://www.vagaro.com/kridowellness",
+    // TODO: replace with Circadia CDN image when available
+    image: "https://framerusercontent.com/images/4uFgYaOmQoQ7A8BfZKftOqUKgzA.webp?width=800",
   },
 ];
 
