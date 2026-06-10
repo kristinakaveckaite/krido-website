@@ -22,22 +22,6 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <>
-      {/* Final CTA */}
-      <section className="section bg-forest-dark py-20 text-center text-cream">
-        <div className="container-site">
-          <p className="text-sm uppercase tracking-[0.2em] text-cream/70">
-            Visible results. Zero downtime.
-          </p>
-          <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl md:text-4xl">
-            Start Your Transformation
-          </h2>
-          <BookNow
-            label="Book Today"
-            className="mt-8 inline-block rounded-full bg-cream px-8 py-3 font-medium text-forest transition hover:bg-white"
-          />
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="section bg-forest py-16 text-cream">
         <div className="container-site grid gap-10 md:grid-cols-4">
