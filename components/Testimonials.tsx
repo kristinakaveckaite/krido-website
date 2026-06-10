@@ -30,26 +30,22 @@ export default function Testimonials() {
   return (
     <section className="section py-16 md:py-24">
       <div className="container-site">
-        <div className="relative overflow-hidden rounded-3xl bg-gray-50">
-          {/* Corner texture blocks — ice top-left, leaf bottom-right */}
-          <div className="pointer-events-none absolute left-0 top-0 h-40 w-44 overflow-hidden md:h-56 md:w-64">
-            <img src="https://framerusercontent.com/images/HMmZxAZOrlq5Nc5mnb4URVayPK4.webp?width=500"
-              alt="" className="h-full w-full object-cover opacity-70" />
-          </div>
-          <div className="pointer-events-none absolute bottom-0 right-0 h-44 w-48 overflow-hidden md:h-64 md:w-72">
-            <img src="https://framerusercontent.com/images/zNb0aHedfOuL7qrQ8e5rokatl0.webp?width=500"
-              alt="" className="h-full w-full object-cover opacity-60" />
-          </div>
+        {/* Full-bleed green texture background, rounded corners */}
+        <div className="relative overflow-hidden rounded-3xl">
+          <img src="/reviews-bg.png" alt=""
+            className="absolute inset-0 h-full w-full object-cover" />
+          {/* Soft light overlay so cards/text stay readable */}
+          <div className="absolute inset-0 bg-white/10" />
 
           <div className="relative px-6 py-12 md:px-14 md:py-16">
-            {/* Heading */}
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-muted">
+            {/* Heading — white text on green */}
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
               5 Star Reviews
             </p>
-            <h2 className="mt-3 text-center font-sans text-2xl font-bold uppercase tracking-wide text-ink md:text-4xl">
+            <h2 className="mt-3 text-center font-sans text-2xl font-bold uppercase tracking-wide text-white md:text-4xl">
               Our Clients Love Their Results
             </h2>
-            <div className="mx-auto mt-3 h-0.5 w-20 bg-ink" />
+            <div className="mx-auto mt-3 h-0.5 w-20 bg-white/80" />
 
             {/* Cards */}
             <div ref={trackRef} className="mt-12 flex overflow-x-hidden">
@@ -57,7 +53,7 @@ export default function Testimonials() {
                 <div key={pi} className="flex w-full shrink-0 gap-5">
                   {testimonials.slice(pi * PER_PAGE, pi * PER_PAGE + PER_PAGE).map((t, i) => (
                     <div key={t.name}
-                      className="flex min-w-0 flex-1 flex-col rounded-2xl bg-white p-5 shadow-md">
+                      className="flex min-w-0 flex-1 flex-col rounded-2xl bg-white p-5 shadow-lg">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${avatarColors[i % avatarColors.length]}`}>
@@ -87,14 +83,14 @@ export default function Testimonials() {
             <div className="mt-10 flex justify-center gap-2">
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button key={i} onClick={() => goTo(i)} aria-label={`Page ${i+1}`}
-                  className={`h-2 rounded-full transition-all ${i === page ? "w-6 bg-forest" : "w-2 bg-gray-300"}`} />
+                  className={`h-2 rounded-full transition-all ${i === page ? "w-6 bg-white" : "w-2 bg-white/50"}`} />
               ))}
             </div>
 
             {/* CTA */}
             <div className="mt-8 text-center">
               <Link href="/before-and-afters"
-                className="inline-block rounded-full bg-forest px-10 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-cream transition hover:bg-forest-dark">
+                className="inline-block rounded-full bg-white px-10 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-forest transition hover:bg-cream">
                 Before &amp; After Photos
               </Link>
             </div>
